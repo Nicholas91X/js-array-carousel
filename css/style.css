@@ -24,20 +24,25 @@ img {
     position: relative;
 }
 
-.immagine-grande {
+.immagine-grande,
+.descrizione {
     display: none;
 }
 
-.immagine-grande.active {
+.immagine-grande.active,
+.descrizione.active {
     display: block;
 }
 
+
 .immagine-piccola.active {
-    border: 3px solid white;
+    border: 3px solid lime;
 }
 
 .descrizione {
     width: 60%;
+    color: white;
+    padding: 10px;
     text-align: right;
     position: absolute;
     bottom: 0;

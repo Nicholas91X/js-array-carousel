@@ -22,6 +22,22 @@ const immaginiArray = [
     "img/05.jpg"
 ]
 
+const luoghi = [
+    "Svizzera",
+    "Svezia",
+    "Spagna",
+    "Francia",
+    "Italia"
+]
+
+const descrizioneLuoghi = [
+    "Svizzera - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, dolores.",
+    "Svezia - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, dolores.",
+    "Spagna - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, dolores.",
+    "Francia - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, dolores.",
+    "Italia - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, dolores."
+]
+
 console.log(immaginiArray);
 
 const libreria = document.getElementById("libreria");
@@ -32,7 +48,12 @@ for (i = 0; i < immaginiArray.length; i++) {
     libreria.innerHTML += `<div class="contenitore-immagine">
     <img class="immagine-piccola" src="${immaginiArray[i]}" alt="">
     </div>`;
-    containerGrande.innerHTML += `<img  class="immagine-grande" src="${immaginiArray[i]}" alt="">`
+    containerGrande.innerHTML += `<img  class="immagine-grande" src="${immaginiArray[i]}" alt="">`;
+    containerGrande.innerHTML += `<div class="descrizione">
+    <h3>${luoghi[i]}</h3>
+    <p>${descrizioneLuoghi[i]}</p>
+    </div>`;
+    
 }
 
 const immagineGrande = document.getElementsByClassName("immagine-grande");
@@ -41,11 +62,16 @@ console.log(immagineGrande);
 const immaginePiccola = document.getElementsByClassName("immagine-piccola");
 console.log(immaginePiccola);
 
+const description = document.getElementsByClassName("descrizione");
+console.log(description);
+
 let activeItem = 0;
 
 immagineGrande[activeItem].classList.add("active");
 
 immaginePiccola[activeItem].classList.add("active");
+
+description[activeItem].classList.add("active");
 
 const up = document.getElementById("up");
 const down = document.getElementById("down");
@@ -57,22 +83,30 @@ up.addEventListener("click", function(){
 
         immaginePiccola[activeItem].classList.remove("active");
 
+        description[activeItem].classList.remove("active");
+
         activeItem--;
 
         immagineGrande[activeItem].classList.add("active");    
 
         immaginePiccola[activeItem].classList.add("active");
+
+        description[activeItem].classList.add("active");
         console.log(activeItem);
     } else if (activeItem == 0) {
         immagineGrande[activeItem].classList.remove("active");
 
         immaginePiccola[activeItem].classList.remove("active");
 
+        description[activeItem].classList.remove("active");
+
         activeItem = immaginiArray.length - 1;
 
         immagineGrande[activeItem].classList.add("active");    
 
         immaginePiccola[activeItem].classList.add("active");
+
+        description[activeItem].classList.add("active");
         console.log(activeItem);
     }
     
@@ -84,22 +118,30 @@ down.addEventListener("click", function(){
 
         immaginePiccola[activeItem].classList.remove("active");
 
+        description[activeItem].classList.remove("active");
+
         activeItem++;
 
         immagineGrande[activeItem].classList.add("active");
 
         immaginePiccola[activeItem].classList.add("active");
+
+        description[activeItem].classList.add("active");
         console.log(activeItem);
     } else if (activeItem >= immaginiArray.length - 1) {
         immagineGrande[activeItem].classList.remove("active");
 
         immaginePiccola[activeItem].classList.remove("active");
 
+        description[activeItem].classList.remove("active");
+
         activeItem = 0;
 
         immagineGrande[activeItem].classList.add("active");    
 
         immaginePiccola[activeItem].classList.add("active");
+
+        description[activeItem].classList.add("active");
         console.log(activeItem);
     }
     
