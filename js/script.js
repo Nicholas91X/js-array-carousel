@@ -14,7 +14,7 @@
 // scriviamo sempre prima per punti il nostro algoritmo in italiano per capire cosa vogliamo fare
 // Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda: "Quanti cicli servono?"
 
-const immagini = [
+const immaginiArray = [
     "img/01.jpg",
     "img/02.jpg",
     "img/03.jpg",
@@ -22,18 +22,86 @@ const immagini = [
     "img/05.jpg"
 ]
 
-console.log(immagini);
+console.log(immaginiArray);
 
 const libreria = document.getElementById("libreria");
 
 const containerGrande = document.getElementById("container-grande");
 
-for (i = 0; i < immagini.length; i++) {
+for (i = 0; i < immaginiArray.length; i++) {
     libreria.innerHTML += `<div class="contenitore-immagine">
-    <img src="${immagini[i]}" alt="">
+    <img class="immagine-piccola" src="${immaginiArray[i]}" alt="">
     </div>`;
-    containerGrande.innerHTML += `<img src="${immagini[i]}" alt="">`
+    containerGrande.innerHTML += `<img  class="immagine-grande" src="${immaginiArray[i]}" alt="">`
 }
+
+const immagineGrande = document.getElementsByClassName("immagine-grande");
+console.log(immagineGrande);
+
+const immaginePiccola = document.getElementsByClassName("immagine-piccola");
+console.log(immaginePiccola);
+
+let activeItem = 0;
+
+immagineGrande[activeItem].classList.add("active");
+
+immaginePiccola[activeItem].classList.add("active");
 
 const up = document.getElementById("up");
 const down = document.getElementById("down");
+
+
+up.addEventListener("click", function(){
+    if (activeItem > 0) {
+        immagineGrande[activeItem].classList.remove("active");
+
+        immaginePiccola[activeItem].classList.remove("active");
+
+        activeItem--;
+
+        immagineGrande[activeItem].classList.add("active");    
+
+        immaginePiccola[activeItem].classList.add("active");
+        console.log(activeItem);
+    } else if (activeItem == 0) {
+        immagineGrande[activeItem].classList.remove("active");
+
+        immaginePiccola[activeItem].classList.remove("active");
+
+        activeItem = immaginiArray.length - 1;
+
+        immagineGrande[activeItem].classList.add("active");    
+
+        immaginePiccola[activeItem].classList.add("active");
+        console.log(activeItem);
+    }
+    
+})
+
+down.addEventListener("click", function(){  
+    if (activeItem < immaginiArray.length - 1 && activeItem >= 0) {
+        immagineGrande[activeItem].classList.remove("active");
+
+        immaginePiccola[activeItem].classList.remove("active");
+
+        activeItem++;
+
+        immagineGrande[activeItem].classList.add("active");
+
+        immaginePiccola[activeItem].classList.add("active");
+        console.log(activeItem);
+    } else if (activeItem >= immaginiArray.length - 1) {
+        immagineGrande[activeItem].classList.remove("active");
+
+        immaginePiccola[activeItem].classList.remove("active");
+
+        activeItem = 0;
+
+        immagineGrande[activeItem].classList.add("active");    
+
+        immaginePiccola[activeItem].classList.add("active");
+        console.log(activeItem);
+    }
+    
+})
+

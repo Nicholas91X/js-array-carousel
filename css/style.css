@@ -24,12 +24,16 @@ img {
     position: relative;
 }
 
-#container-grande>img {
+.immagine-grande {
     display: none;
 }
 
-#container-grande>img.active {
+.immagine-grande.active {
     display: block;
+}
+
+.immagine-piccola.active {
+    border: 3px solid white;
 }
 
 .descrizione {
