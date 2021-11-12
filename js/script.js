@@ -13,3 +13,27 @@
 // costruiamo del carosello una versione statica contenente un'immagine grande con del testo ben posizionato e una miniatura. Di questa versione statica al momento opportuno commenteremo (oscureremo) alcuni elementi per poterli riprodurre dinamicamente in js. Potremo quindi usarli come "template".
 // scriviamo sempre prima per punti il nostro algoritmo in italiano per capire cosa vogliamo fare
 // Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda: "Quanti cicli servono?"
+
+const immagini = [
+    "img/01.jpg",
+    "img/02.jpg",
+    "img/03.jpg",
+    "img/04.jpg",
+    "img/05.jpg"
+]
+
+console.log(immagini);
+
+const libreria = document.getElementById("libreria");
+
+const containerGrande = document.getElementById("container-grande");
+
+for (i = 0; i < immagini.length; i++) {
+    libreria.innerHTML += `<div class="contenitore-immagine">
+    <img src="${immagini[i]}" alt="">
+    </div>`;
+    containerGrande.innerHTML += `<img src="${immagini[i]}" alt="">`
+}
+
+const up = document.getElementById("up");
+const down = document.getElementById("down");
